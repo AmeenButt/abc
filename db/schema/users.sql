@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS user_profile (
+    id SERIAL PRIMARY KEY,
+    user_id INT UNIQUE NOT NULL,
+    phone_number TEXT NOT NULL,
+    address TEXT NOT NULL,
+    is_verified BOOLEAN NOT NULL DEFAULT false
+);
